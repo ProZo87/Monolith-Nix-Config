@@ -1,10 +1,5 @@
-> [!IMPORTANT]  
-> This repo is a little out of date at the moment, and is pending a refactor. Please check official documentation for NixOS and home-manager to make sure you're doing things right. See https://github.com/Misterio77/nix-starter-configs/issues/86 for more info.
-
 # Nix Starter Config
-
-This repo contains a few a simple nix flake templates for getting started with
-NixOS + home-manager.
+This repo contains a NixOS config tailored for academic and professional development that needs a stable environment.  
 
 # What this provides
 
@@ -28,10 +23,6 @@ Assuming you have a basic NixOS booted up (either live or installed, anything
 works). [Here's a link to the latest NixOS downloads, just for
 you](https://nixos.org/download#download-nixos).
 
-Alternatively, you can totally use `nix` and `home-manager` on your existing
-distro (or even on Darwin). [Install nix](https://nixos.org/download.html#nix)
-and follow along (just ignore the `nixos-*` commands).
-
 ## What template to chose?
 
 If this is your first trying flakes, or you're attempting to migrate your
@@ -41,9 +32,7 @@ If you're here looking for inspiration/tips/good practices (and you already use
 flakes), or you're migrating a config that already has overlays and custom
 packages; try the standard version.
 
-## I like your funny words, magic man
-
-Not sure what this all means?
+## Not sure what this all means?
 
 Take a look at [the learn hub on the NixOS
 website](https://nixos.org/learn.html) (scroll down to guides, the manuals, and
@@ -60,8 +49,8 @@ and come back here to get your feet wet, it's the best way to learn!
 - Create a repository for your config, for example:
 ```bash
 cd ~/Documents
-git init nix-config
-cd nix-config
+git init monolith-nix-config
+cd monolith-nix-config
 ```
 - Make sure you're running Nix 2.4+, and opt into the experimental `flakes` and `nix-command` features:
 ```bash
@@ -72,10 +61,10 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 - Get the template:
 ```bash
 # For minimal version
-nix flake init -t github:misterio77/nix-starter-config#minimal
+nix flake init -t https://github.com/ProZo87/Monolith-Nix-Config/tree/cd2634edb7742a5b4bbf6520a2403c22be7013c6/minimal
 
 # For standard version
-nix flake init -t github:misterio77/nix-starter-config#standard
+nix flake init -t https://github.com/ProZo87/Monolith-Nix-Config/tree/cd2634edb7742a5b4bbf6520a2403c22be7013c6/minimal
 ```
 - If you want to use NixOS: add stuff you currently have on `/etc/nixos/` to
   `nixos` (usually `configuration.nix` and `hardware-configuration.nix`, when
@@ -160,9 +149,6 @@ environment.systemPackages =
 
 You can organize them by hostname and username on `nixos` and `home-manager`
 directories, be sure to also add them to `flake.nix`.
-
-You can take a look at my (beware, here be reproductible dragons)
-[configuration repo](https://github.com/misterio77/nix-config) for ideas.
 
 NixOS makes it easy to share common configuration between hosts (you might want
 to create a common directory for these), while keeping everything in sync.
@@ -278,7 +264,7 @@ them.
 
 # Troubleshooting / FAQ
 
-Please [let me know](https://github.com/Misterio77/nix-starter-config/issues)
+Please [let me know](https://github.com/ProZo87/Monolith-Nix-Config/issues)
 any questions or issues you face with these templates, so I can add more info
 here!
 
